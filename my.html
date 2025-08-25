@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagalakshmi Palapati | Portfolio</title>
+<style>
+/* ===== General Styles ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background: #f2f2f2;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #222;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+}
+header nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+header nav a:hover {
+    text-decoration: underline;
+}
+main {
+    padding: 100px 2rem 2rem 2rem;
+}
+
+/* ===== Hamburger Menu ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px;
+}
+
+/* ===== Sections ===== */
+section {margin-bottom: 3rem;}
+
+/* ===== Portfolio Project Cards ===== */
+.project-card {
+    padding: 1rem;
+    border-radius: 10px;
+    color: #fff;
+    margin: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.project-1 {background:#FF6B6B;}
+.project-2 {background:#4ECDC4;}
+.project-3 {background:#556270;}
+.project-4 {background:#C7F464; color:#222;}
+.project-5 {background:#FFA500; color:#222;}
+
+/* ===== To-Do App ===== */
+#todo-app input, #todo-app button {
+    padding: 0.5rem;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+}
+.task-item.completed {text-decoration: line-through; color: gray;}
+
+/* ===== Product Cards ===== */
+.product-card {
+    padding:1rem; background:#f8f8f8; border-radius:10px;
+    text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.product-card img {width:100%; max-height:150px; object-fit:cover; border-radius:10px;}
+.product-card button {margin-top:0.5rem; padding:0.5rem 1rem; cursor:pointer;}
+
+/* ===== Modal ===== */
+#product-modal {
+    display:none; position:fixed; top:0; left:0;
+    width:100%; height:100%; background:rgba(0,0,0,0.7);
+    justify-content:center; align-items:center;
+}
+#product-modal div {
+    background:#fff; padding:2rem; border-radius:10px; max-width:500px; width:90%; position:relative;
+}
+#close-modal {position:absolute; top:10px; right:15px; cursor:pointer; font-size:1.5rem;}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+    header nav {display:none; flex-direction:column; background:#222; position:absolute; top:60px; right:0; width:200px;}
+    header nav.show {display:flex;}
+    .hamburger {display:flex;}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Nagalakshmi Palapati</h1>
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav id="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#todo-app">To-Do App</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- ===== About Section ===== -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Nagalakshmi Palapati, Web Developer | Python Enthusiast | Intern at ApexPlanet.</p>
+    <p>I specialize in building responsive, user-friendly web applications using HTML, CSS, and JavaScript. Passionate about cybersecurity and Python, I create projects that are both practical and engaging.</p>
+</section>
+
+<!-- ===== Projects Section ===== -->
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-card project-1">Portfolio Website<br>Fully responsive personal portfolio built with HTML, CSS, JS.</div>
+    <div class="project-card project-2">Task-1 WebDev<br>HTML, CSS, JS submission for ApexPlanet internship.</div>
+    <div class="project-card project-3">Task-2 WebDev<br>Contact form with validation using HTML, CSS, JS.</div>
+    <div class="project-card project-4">Task-3 Portfolio<br>Multi-page professional portfolio website.</div>
+    <div class="project-card project-5">Password Checker<br>Python project to assess and improve password security.</div>
+</section>
+
+<!-- ===== To-Do App Section ===== -->
+<section id="todo-app">
+    <h2>To-Do / Note-Taking App</h2>
+    <input type="text" id="task-input" placeholder="Enter new task">
+    <button id="add-task">Add Task</button>
+    <button id="clear-completed">Clear Completed</button>
+    <p id="task-count">0 task(s)</p>
+    <ul id="task-list"></ul>
+</section>
+
+<!-- ===== Motivational Video ===== -->
+<section id="motivation">
+    <h2>Stay Inspired!</h2>
+    <p>"Learning never exhausts the mind. Keep building, keep growing!"</p>
+    <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls width="400"></video>
+</section>
+
+<!-- ===== Product Listing Section ===== -->
+<section id="products">
+    <h2>Product Listing</h2>
+    <div class="filters" style="margin-bottom:1rem;">
+        <input type="text" id="search-product" placeholder="Search product...">
+        <input type="number" id="min-price" placeholder="Min Price">
+        <input type="number" id="max-price" placeholder="Max Price">
+        <input type="number" id="min-rating" placeholder="Min Rating">
+        <button id="filter-btn">Filter</button>
+    </div>
+    <div id="product-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem;"></div>
+</section>
+
+<!-- ===== Contact Section ===== -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <textarea placeholder="Your Message"></textarea><br>
+    <button>Send</button>
+</section>
+
+<!-- ===== Product Modal ===== -->
+<div id="product-modal">
+    <div>
+        <span id="close-modal">✖</span>
+        <img id="modal-img" src="" alt="" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+        <h3 id="modal-title"></h3>
+        <p id="modal-category"></p>
+        <p id="modal-price"></p>
+        <p id="modal-rating"></p>
+    </div>
+</div>
+
+<script>
+// ===== Hamburger Menu =====
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+// ===== To-Do App =====
+const taskInput = document.getElementById('task-input');
+const addTaskBtn = document.getElementById('add-task');
+const clearBtn = document.getElementById('clear-completed');
+const taskList = document.getElementById('task-list');
+const taskCount = document.getElementById('task-count');
+
+function updateLocalStorage(){
+    const tasks=[];
+    document.querySelectorAll('.task-item').forEach(t=>{
+        tasks.push({text:t.querySelector('span').textContent,completed:t.classList.contains('completed')});
+    });
+    localStorage.setItem('tasks',JSON.stringify(tasks));
+    taskCount.textContent=`${tasks.length} task(s)`;
+}
+
+function loadTasks(){
+    const saved=JSON.parse(localStorage.getItem('tasks')||'[]');
+    saved.forEach(t=>addTaskToDOM(t.text,t.completed));
+}
+
+function addTaskToDOM(text,completed=false){
+    const li=document.createElement('li');
+    li.className='task-item';
+    if(completed) li.classList.add('completed');
+    li.innerHTML=`<span>${text}</span>`;
+    li.addEventListener('click',()=>{li.classList.toggle('completed'); updateLocalStorage();});
+    taskList.appendChild(li);
+    updateLocalStorage();
+}
+
+addTaskBtn.addEventListener('click',()=>{if(taskInput.value){addTaskToDOM(taskInput.value); taskInput.value='';}});
+clearBtn.addEventListener('click',()=>{document.querySelectorAll('.task-item.completed').forEach(t=>t.remove()); updateLocalStorage();});
+window.onload=()=>{loadTasks(); displayProducts();};
+
+// ===== Product Listing =====
+const products = [
+    {title:'Smartphone', category:'electronics', price:500, rating:4.5, img:'https://via.placeholder.com/250x150?text=Smartphone'},
+    {title:'Laptop', category:'electronics', price:1200, rating:4.8, img:'https://via.placeholder.com/250x150?text=Laptop'},
+    {title:'T-Shirt', category:'clothing', price:25, rating:4.2, img:'https://via.placeholder.com/250x150?text=T-Shirt'},
+    {title:'Jeans', category:'clothing', price:60, rating:4.1, img:'https://via.placeholder.com/250x150?text=Jeans'},
+    {title:'JS Guide', category:'books', price:30, rating:4.9, img:'https://via.placeholder.com/250x150?text=JS+Guide'},
+    {title:'Python Book', category:'books', price:35, rating:4.7, img:'https://via.placeholder.com/250x150?text=Python+Book'}
+];
+
+const productList = document.getElementById('product-list');
+const modal = document.getElementById('product-modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalCategory = document.getElementById('modal-category');
+const modalPrice = document.getElementById('modal-price');
+const modalRating = document.getElementById('modal-rating');
+const closeModal = document.getElementById('close-modal');
+
+function displayProducts(list=products){
+    productList.innerHTML='';
+    list.forEach(p=>{
+        const card = document.createElement('div');
+        card.className='product-card';
+        card.innerHTML=`<img src="${p.img}" alt="${p.title}"><h4>${p.title}</h4>
+                        <p>Category: ${p.category}</p>
+                        <p>Price: $${p.price}</p>
+                        <p>Rating: ${p.rating}</p>
+                        <button class="details-btn">View Details</button>`;
+        card.querySelector('.details-btn').addEventListener('click',()=>showModal(p));
+        productList.appendChild(card);
+    });
+}
+
+function showModal(product){
+    modal.style.display='flex';
+    modalImg.src = product.img;
+    modalTitle.textContent = product.title;
+    modalCategory.textContent = `Category: ${product.category}`;
+   
+    modalPrice.textContent = `Price: $${product.price}`;
+    modalRating.textContent = `Rating: ${product.rating}`;
+}
+
+closeModal.addEventListener('click',()=>{modal.style.display='none';});
+
+// ===== Product Filtering =====
+document.getElementById('filter-btn').addEventListener('click',()=>{
+    const search = document.getElementById('search-product').value.toLowerCase();
+    const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+    const minRating = parseFloat(document.getElementById('min-rating').value) || 0;
+
+    const filtered = products.filter(p=>{
+        return p.title.toLowerCase().includes(search) &&
+               p.price >= minPrice && p.price <= maxPrice &&
+               p.rating >= minRating;
+    });
+    displayProducts(filtered);
+});
+</script>
+
+</body>
+</html>
